@@ -1,0 +1,12 @@
+version: '1.0'
+services:
+  brg-wiremock-service:
+    image: brg-wiremock:1.0
+    container_name: brg-wiremock-service
+    command:
+      - "--global-response-templating"
+      - "--verbose"
+      - "--print-all-network-traffic"
+      - "--local-response-templating"
+    ports:
+      - '8383:8080'
