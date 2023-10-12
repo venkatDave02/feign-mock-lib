@@ -17,7 +17,7 @@ This Library use Wiremock framework to mock the down-streams.
 Sample Configuration
 
 Example 1:
-```
+``` java
 MockConfigServer mockConfigServer = new MockConfigServer(mockConfig());
 String mockServerBaseUrl = server.start();
 ```
@@ -27,7 +27,7 @@ String mockServerBaseUrl = server.start();
 - The port sets to wiremock's dynamic port number
 
 Example 2:
-```
+``` java
 MockConfigServer mockConfigServer = new MockConfigServer(mockConfig()
                 .resourcePath("src/test/resources")
                 .verbose(true)
