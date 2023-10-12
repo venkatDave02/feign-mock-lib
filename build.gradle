@@ -14,7 +14,7 @@ project.ext {
     isReleaseVersion = System.getenv('RELEASE_VERSION') != null
     artifactVersion = isReleaseVersion ? '' : '-SNAPSHOT'
 
-    jarName = "brg-test-lib"
+    jarName = "feign-mock-lib"
 }
 
 

@@ -1,0 +1,46 @@
+name: Feign Mock - Publish release version
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  id-token: write 
+  contents: read
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup Java SDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: '11'
+        cache: 'gradle'
+    - name: Configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::693198922172:role/exoz-githib-oidc-role
+        role-session-name: exozsession
+        aws-region: ${{ env.AWS_REGION }}
+      env:
+        AWS_REGION: ap-southeast-2
+    - name: Build & Publish with Gradle
+      run: ./gradlew build publish --stacktrace
+      env:
+        RELEASE_VERSION: "true"
+        GITHUB_USER: ${{secrets.CICD_TOKEN_USERNAME}}
+        GITHUB_TOKEN: ${{secrets.CICD_TOKEN_KEY}}
+    - name: 'Publish Test Report'
+      if: always()
+      uses: actions/upload-artifact@v2-preview
+      with:
+        name: 'test-report'
+        path: build/reports/tests/test/*
+    - name: Test Summary
+      uses: test-summary/action@v2
+      with:
+        paths: "build/test-results/**/TEST-*.xml"
+      if: always()
