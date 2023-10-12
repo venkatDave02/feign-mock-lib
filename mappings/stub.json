@@ -1,0 +1,16 @@
+{
+  "priority": 1,
+  "id": "d3e46186-24ba-4a4c-be8b-a2c45883212a",
+  "request": {
+    "method": "ANY",
+    "urlPattern": ".*"
+  },
+  "response": {
+    "status": 200,
+    "transformerParameters": {
+      "use-case": "default",
+      "resource-path": "/home/wiremock/."
+    },
+    "transformers": ["response-transformer"]
+  }
+}
