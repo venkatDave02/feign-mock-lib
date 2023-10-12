@@ -1,4 +1,4 @@
-# Feign Mock library
+# Feign Mock Library
 
 > Feign mock library provides an abstract configuration to mock the down-stream services using wire-mock framework
 
