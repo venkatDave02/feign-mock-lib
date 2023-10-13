@@ -41,7 +41,7 @@ System.setProperty("icapi-base-path", mockServerBaseUrl.concat("/icapi"));
 
 #### Folder structure to place all your downstream mock response
 
-![resource-dir-structure.jpg](images%2Fresource-dir-structure.jpg)
+![resource-dir-structure.jpg](assets%2Fimages%2Fresource-dir-structure.jpg)
 - All the downstream mock response is placed under ("/__files/fixtures")
 - Configure the resource base path (ex: "src/test/resources") in the MockConfigServer
   - Reference: Sample Mock Server Configuration -> Example 2
@@ -53,7 +53,7 @@ System.setProperty("icapi-base-path", mockServerBaseUrl.concat("/icapi"));
 
 Example 1:
 
-![downstream-response-dir-structure.jpg](images%2Fdownstream-response-dir-structure.jpg)
+![downstream-response-dir-structure.jpg](assets%2Fimages%2Fdownstream-response-dir-structure.jpg)
 - Downstream CAPI endpoint (http://localhost:8383/capi/authentication/login)
 - Consider this as a successful use-case so the response will be under the default directory
 - Folder structure is associated with CAPI endpoint URI, starting from downstream service name (capi),
@@ -74,4 +74,4 @@ MockConfigServer.stub("not-found");
 - In case the file is not found in the configured use-case dir, the lib will look for that file under the default directory
     - Example (not-found): If the file not found under (__files/fixtures/not-found/icapi/en/template/2/CATEGORY/526/cruses.json), then
       lib will look for the file under (__files/fixtures/default/icapi/en/template/2/CATEGORY/526/cruses.json)
-      ![downstream-response-dir-structure-1.jpg](images%2Fdownstream-response-dir-structure-1.jpg)
+      ![downstream-response-dir-structure-1.jpg](assets%2Fimages%2Fdownstream-response-dir-structure-1.jpg)
