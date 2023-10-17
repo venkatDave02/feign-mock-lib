@@ -16,7 +16,7 @@ String mockServerBaseUrl = server.start();
 - The above configuration initializes the mock server with default values
 - By default, the resource path (resource base path) is set to "src/test/resources"
 - By default, verbose (enable to log request and response info) sets to false
-- By default, port (configured to run config server in specific port) is set to wire mock's dynamic port number
+- By default, port (configure to run config server in specific port) is set to wire mock's dynamic port number
 
 Example 2:
 ``` java
